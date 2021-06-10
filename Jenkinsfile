@@ -14,16 +14,7 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'pwd'
-                sh 'ls'
-                sh 'ls -ltrh ./jenkins/scripts/'
-                sh 'whoami'
-                sh 'chmod +x ./jenkins/scripts/test.sh'
-                sh './jenkins/scripts/test.sh'
-            }
-        }
+        
         stage('Deliver') {
             steps {
                 sh 'chmod +x ./jenkins/scripts/deliver.sh'
