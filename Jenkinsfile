@@ -20,6 +20,7 @@ pipeline {
                 sh 'ls'
                 sh 'ls -ltrh ./jenkins/scripts/'
                 sh 'whoami'
+                sh 'chmod +x ./jenkins/scripts/test.sh'
                 sh './jenkins/scripts/test.sh'
             }
         }
