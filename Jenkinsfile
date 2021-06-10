@@ -18,6 +18,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls'
+                sh 'ls -ltrh ./jenkins/scripts/'
+                sh 'whoami'
                 sh './jenkins/scripts/test.sh'
             }
         }
