@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        label {
-            'chrome'
-        }
-    }
+    agent {label 'chrome' }
+
     environment {
         CI = 'true'
         }
