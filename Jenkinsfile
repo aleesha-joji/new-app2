@@ -1,6 +1,6 @@
 pipeline {
     agent {label 'chrome' }
-
+    tools { nodejs 'NodeJS' }
     environment {
         CI = 'true'
         }
