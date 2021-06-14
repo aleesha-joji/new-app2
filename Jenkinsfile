@@ -1,15 +1,14 @@
 pipeline {
     agent {
-        docker {
-            image 'node:14.15.4-alpine'
-            args '-p 3000:3000'
+        lable {
+            'chrome'
         }
     }
     environment {
         CI = 'true'
         }
     stages {
-        stage('Build') {
+        stage('Required dependancies') {
             steps {
                 sh 'npm install'
             }
@@ -25,13 +24,9 @@ pipeline {
             }
         }
 
-        stage('Deliver') {
+        stage('Build') {
             steps {
-                sh 'chmod +x ./jenkins/scripts/deliver.sh'
-                sh 'chmod +x ./jenkins/scripts/kill.sh'
-                sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
+                sh 'npm run build'
             }
         }
     }
